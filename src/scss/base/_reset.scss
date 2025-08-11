@@ -1,0 +1,44 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-family: "Roboto Slab", sans-serif;
+	font-size: 1.6rem; // 16px
+	color: #212529;
+	line-height: 1.5;
+	background-color: #fff;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+button {
+	cursor: pointer;
+	border: none;
+	background: transparent;
+}
+
+ul,
+ol {
+	list-style: none;
+}
+
+:focus {
+	outline: 2px solid #0d6efd;
+	outline-offset: 2px;
+}
