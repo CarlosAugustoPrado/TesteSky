@@ -1,0 +1,179 @@
+@use "utils" as *;
+
+header {
+	.upper-area {
+		height: 63px;
+		display: flex;
+		align-items: center;
+		.container {
+			@include flex(row, center, space-between);
+			.left-area {
+				display: flex;
+				align-items: center;
+				.logo {
+					margin-right: 32px;
+					img {
+						max-width: 90px;
+					}
+				}
+				.acessibilidade {
+					display: flex;
+					align-items: center;
+					gap: 16px;
+					margin-right: 112px;
+					.btn-feature {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						width: 24px;
+						height: 24px;
+						border-radius: 50%;
+						background-color: #fafaff;
+						transition: all 0.3s;
+						img {
+							max-width: 15px;
+						}
+						span {
+							font-size: 1.3rem;
+							font-weight: bold;
+							color: $main-light-color;
+						}
+						&:hover {
+							transform: scale(1.2);
+						}
+					}
+				}
+				.btn-play {
+					display: flex;
+					align-items: center;
+					gap: 5px;
+					span {
+						font-size: 1.6rem;
+						font-weight: bold;
+						color: $main-light-color;
+						transition: all 0.3s;
+					}
+					svg {
+						path {
+							transition: all 0.3s;
+						}
+					}
+					&:hover {
+						span {
+							color: $main-colored;
+						}
+						svg {
+							path {
+								fill: $main-colored;
+							}
+						}
+					}
+				}
+			}
+			.action-area {
+				display: flex;
+				align-items: center;
+				gap: 28px;
+				.btn-login {
+					display: flex;
+					align-items: center;
+					gap: 8px;
+					span {
+						font-size: 1.6rem;
+						font-weight: bold;
+						color: $main-light-color;
+						transition: all 0.3s;
+					}
+					svg {
+						path {
+							transition: all 0.3s;
+						}
+					}
+					&:hover {
+						span {
+							color: $main-colored;
+						}
+						svg {
+							path {
+								fill: $main-colored;
+							}
+						}
+					}
+				}
+				.btn-search {
+					transition: all 0.3s;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					svg {
+						path {
+							transition: all 0.3s;
+						}
+					}
+					&:hover {
+						transform: scale(1.2);
+						svg {
+							path {
+								fill: $main-colored;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	nav {
+		width: 100%;
+		background-color: #fff;
+		ul {
+			width: 100%;
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			justify-items: center;
+			li {
+				width: 100%;
+				button {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					width: 100%;
+					height: 4.8rem;
+					position: relative;
+					span {
+						font-size: 1.6rem;
+						font-weight: bold;
+						line-height: 1.38;
+						text-align: center;
+						color: $main-light-color;
+					}
+					&:after {
+						content: "";
+						width: 100%;
+						height: 4px;
+						background-color: transparent;
+						display: block;
+						position: absolute;
+						bottom: 0;
+						transition: all 0.3s;
+					}
+					&.active {
+						span {
+							color: $main-colored;
+						}
+						&::after {
+							background-color: $main-colored;
+						}
+					}
+					&:hover {
+						span {
+							color: $main-colored;
+						}
+						&::after {
+							background-color: $main-colored;
+						}
+					}
+				}
+			}
+		}
+	}
+}
