@@ -1,0 +1,135 @@
+@use "utils" as *;
+
+footer {
+	background-color: #f1f2fa;
+	padding-top: 16px;
+	.upper-area {
+		border-bottom: 1px solid #d1d1d1;
+		padding-bottom: 16px;
+		margin-bottom: 32px;
+		.container {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 32px;
+			.share {
+				ul {
+					display: flex;
+					gap: 16px;
+					align-items: center;
+					li {
+						a {
+							svg {
+								path {
+									transition: all 0.3s;
+								}
+							}
+							&:hover {
+								svg {
+									path {
+										fill: $main-colored;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.main-content {
+		padding-bottom: 32px;
+		.container {
+			display: flex;
+			justify-content: space-between;
+			gap: 32px;
+			padding-right: 64px;
+			.app {
+				.title {
+					display: flex;
+					align-items: center;
+					gap: 16px;
+					margin-bottom: 32px;
+					p {
+						font-size: 1.6rem;
+						font-weight: bold;
+						color: $main-light-color;
+						max-width: 280px;
+					}
+				}
+				ul {
+					display: flex;
+					gap: 32px;
+				}
+			}
+			.links-area {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				row-gap: 32px;
+				column-gap: 64px;
+				.link-group {
+					h3 {
+						font-size: 1.6rem;
+						font-weight: bold;
+						color: $main-light-color;
+						max-width: 280px;
+						margin-bottom: 16px;
+					}
+					ul {
+						display: flex;
+						flex-direction: column;
+
+						li {
+							a {
+								font-size: 1.4rem;
+								line-height: 2.14;
+								color: $main-dark-color;
+								transition: 0.3s;
+
+								&:hover {
+									color: $main-colored;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.info-bar {
+		.container {
+			ul {
+				display: flex;
+				gap: 8px;
+				li {
+					a {
+						font-size: 1.4rem;
+						line-height: 2.14;
+						padding-right: 8px;
+						color: $main-dark-color;
+						border-right: 1px solid $main-dark-color;
+						transition: all 0.3s;
+						&:hover {
+							color: $main-colored;
+						}
+					}
+				}
+			}
+		}
+		width: 100%;
+		background-color: #fff;
+		padding: 8px 0;
+	}
+	.copyrights {
+		padding: 8px 0;
+		.container {
+			p {
+				max-width: 1103px;
+				font-size: 1.4rem;
+				line-height: 1.43;
+				letter-spacing: normal;
+				color: $main-light-color;
+			}
+		}
+	}
+}

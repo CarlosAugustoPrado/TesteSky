@@ -212,17 +212,16 @@
 					width: 100%;
 					transition: all 0.3s;
 					transform: translateY(100%);
+					display: flex;
+					align-items: center;
+					justify-content: center;
 					h3 {
-						font-size: 1.6rem;
+						font-size: 2rem;
 						font-weight: bold;
 						color: #fff;
 						transition: all 0.3s;
 						margin-bottom: 20px;
-					}
-					p {
-						font-size: 1.4rem;
-						color: #fff;
-						transition: all 0.3s;
+						text-align: center;
 					}
 				}
 				&:hover {
