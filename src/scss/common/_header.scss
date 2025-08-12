@@ -1,10 +1,12 @@
 @use "utils" as *;
 
 header {
+	margin-bottom: 24px;
 	.upper-area {
 		height: 63px;
 		display: flex;
 		align-items: center;
+		border-bottom: 1px solid #d1d1d1;
 		.container {
 			@include flex(row, center, space-between);
 			.left-area {
@@ -125,6 +127,7 @@ header {
 	nav {
 		width: 100%;
 		background-color: #fff;
+		box-shadow: 0 15px 24.8px 0 rgba(0, 0, 0, 0.1);
 		ul {
 			width: 100%;
 			display: grid;
