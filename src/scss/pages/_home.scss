@@ -6,7 +6,6 @@
 		padding-top: 30px;
 		position: relative;
 		width: 100%;
-
 		.swiper-wrapper {
 			position: relative;
 			.swiper-slide {
@@ -66,6 +65,9 @@
 						font-size: 1.6rem;
 						color: #fff;
 						transition: all 0.3s;
+						display: -webkit-box;
+						-webkit-box-orient: vertical;
+						-webkit-line-clamp: 5;
 					}
 				}
 				&:hover {
@@ -144,11 +146,58 @@
 			}
 		}
 	}
+	@include responsive(1350px) {
+		.swiperDestaques {
+			.swiper-wrapper {
+				.swiper-slide {
+					&-prev {
+						transform: scale(0.8) translateX(100px);
+					}
+					&-next {
+						transform: scale(0.8) translateX(-100px);
+					}
+				}
+			}
+		}
+	}
+	@include responsive(800px) {
+		overflow-x: hidden;
+		.swiperDestaques {
+			margin-left: 16px;
+			padding-bottom: 20px;
+			.swiper-wrapper {
+				.swiper-slide {
+					width: 100%;
+					max-width: 95%;
+					transform: unset;
+					.movie-description {
+						padding: 40px;
+					}
+				}
+			}
+			.custom-button-next,
+			.custom-button-prev {
+				display: none;
+			}
+			.swiper-pagination {
+				display: none;
+			}
+		}
+	}
+	@include responsive(560px) {
+		.swiperDestaques {
+			padding-top: 0;
+			.swiper-wrapper {
+				.swiper-slide {
+					height: 288px;
+				}
+			}
+		}
+	}
 }
 .tab-content {
 	position: relative;
 	overflow-x: hidden;
-
 	.s-categoria-filmes,
 	.s-categoria-series {
 		position: relative;
@@ -306,6 +355,42 @@
 			z-index: 5;
 			justify-content: flex-end;
 			padding-right: 10px;
+		}
+		@include responsive(1300px) {
+			h2 {
+				margin-left: 58px;
+			}
+			.swiper {
+				margin-left: 58px;
+			}
+		}
+		@include responsive(800px) {
+			h2 {
+				margin-left: 16px;
+			}
+			.swiper {
+				margin-left: 16px;
+			}
+		}
+		@include responsive(560px) {
+			margin-bottom: 4px;
+			.swiper {
+				.swiper-wrapper {
+					.swiper-slide {
+						width: 112px;
+						height: 168px;
+						.btn-shopping-cart {
+							width: 24px;
+							height: 24px;
+							border-width: 3px;
+							svg {
+								width: 12px;
+								height: 12px;
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 	.navigation-button-next,

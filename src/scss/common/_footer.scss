@@ -74,6 +74,18 @@ footer {
 						color: $main-light-color;
 						max-width: 280px;
 						margin-bottom: 16px;
+						button {
+							font-size: 1.6rem;
+							font-weight: bold;
+							color: $main-light-color;
+							max-width: 280px;
+							.caret {
+								display: none;
+								transition: transform 0.3s ease-in-out;
+								width: 1em;
+								height: 1em;
+							}
+						}
 					}
 					ul {
 						display: flex;
@@ -129,6 +141,83 @@ footer {
 				line-height: 1.43;
 				letter-spacing: normal;
 				color: $main-light-color;
+			}
+		}
+	}
+	@include responsive(1024px) {
+		.main-content {
+			.container {
+				padding-right: 20px;
+			}
+		}
+	}
+	@include responsive(991px) {
+		.main-content {
+			.container {
+				flex-direction: column;
+			}
+		}
+		.info-bar {
+			.container {
+				ul {
+					flex-wrap: wrap;
+				}
+			}
+		}
+	}
+	@include responsive(560px) {
+		.main-content {
+			.container {
+				.links-area {
+					display: flex;
+					flex-direction: column;
+					row-gap: 16px;
+					.link-group {
+						border-bottom: 1px solid #d1d1d1;
+						padding-bottom: 16px;
+						h3 {
+							margin-bottom: 8px;
+							max-width: unset;
+							button {
+								width: 100%;
+								display: flex;
+								align-items: center;
+								justify-content: space-between;
+								max-width: unset;
+								.caret {
+									display: inline-block;
+								}
+							}
+						}
+						ul {
+							max-height: 0;
+							overflow: hidden;
+							transition: max-height 0.4s ease-in-out, visibility 0s 0.4s;
+							visibility: hidden;
+							padding-top: 0;
+						}
+						&.active {
+							h3 {
+								button {
+									.caret {
+										transform: rotate(180deg);
+									}
+								}
+							}
+							ul {
+								visibility: visible;
+								max-height: 500px;
+								padding-top: 15px;
+								transition: max-height 0.4s ease-in-out, padding-top 0.4s ease-in-out;
+							}
+						}
+					}
+				}
+			}
+		}
+		.copyrights {
+			p {
+				text-align: center;
 			}
 		}
 	}

@@ -2,11 +2,13 @@
 
 header {
 	margin-bottom: 24px;
+	z-index: 2025;
 	.upper-area {
 		height: 63px;
 		display: flex;
 		align-items: center;
 		border-bottom: 1px solid #d1d1d1;
+		background-color: #f1f2fa;
 		.container {
 			@include flex(row, center, space-between);
 			.left-area {
@@ -121,6 +123,22 @@ header {
 						}
 					}
 				}
+				.btn-burguer-menu {
+					.hb {
+						width: 40px;
+						height: 40px;
+						-webkit-transition: all 0.3s;
+						transition: all 0.3s;
+					}
+				}
+			}
+			.btn-burguer-menu {
+				.hb {
+					width: 40px;
+					height: 40px;
+					-webkit-transition: all 0.3s;
+					transition: all 0.3s;
+				}
 			}
 		}
 	}
@@ -175,6 +193,109 @@ header {
 							background-color: $main-colored;
 						}
 					}
+				}
+			}
+		}
+	}
+	.menu-mobile {
+		position: fixed;
+		width: fit-content;
+		top: 63px;
+		right: 0;
+		background-color: #ffffff;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 2025;
+		transform: translatex(100%);
+		transition: all 0.3s;
+		.menu-container {
+			position: relative;
+			z-index: 2024;
+			padding: 38px 26px 38px 20px;
+			border-bottom-left-radius: 20px;
+			transition: all 0.3s;
+			gap: 12px;
+			display: flex;
+			flex-direction: column;
+			overflow-y: auto;
+			transition: all 0.3s;
+			.btn-login {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				border: 1px solid #d1d1d1;
+
+				border-radius: 20px;
+				height: 48px;
+				padding: 0 12px;
+				transition: all 0.3s;
+				span {
+					font-size: 1.6rem;
+					font-weight: bold;
+					color: $main-light-color;
+					transition: all 0.3s;
+				}
+				svg {
+					path {
+						transition: all 0.3s;
+					}
+				}
+				&:hover {
+					border-color: $main-colored;
+					span {
+						color: $main-colored;
+					}
+					svg {
+						path {
+							fill: $main-colored;
+						}
+					}
+				}
+			}
+			form {
+				label {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					padding: 0 16px;
+					width: 300px;
+					border: 1px solid #d1d1d1;
+					border-radius: 20px;
+					height: 48px;
+					input {
+						width: 100%;
+						display: block;
+						max-width: 80%;
+					}
+					button {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+					}
+				}
+			}
+		}
+		&.visible {
+			pointer-events: all;
+			transform: translateX(0);
+		}
+	}
+	@include responsive(650px) {
+		position: sticky;
+		top: 0;
+		.upper-area {
+			.container {
+				.left-area {
+					.acessibilidade {
+						display: none;
+					}
+					.btn-play {
+						display: none;
+					}
+				}
+				.action-area {
+					display: none;
 				}
 			}
 		}

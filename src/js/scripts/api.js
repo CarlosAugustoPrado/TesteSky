@@ -3,11 +3,18 @@ const API_KEY = "3d65ce4a697415814bb2bacb00b455bf";
 const IMAGE_BASE_URL_POSTER = "https://image.tmdb.org/t/p/w500";
 const IMAGE_BASE_URL_BACKDROP = "https://image.tmdb.org/t/p/original";
 
-// Configuração padrão para a maioria dos carrosséis
 const defaultSwiperConfig = {
 	slidesPerView: "auto",
 	spaceBetween: 16,
 	loop: true,
+	breakpoints: {
+		320: {
+			spaceBetween: 8,
+		},
+		650: {
+			spaceBetween: 16,
+		},
+	},
 };
 const swiperConfigs = {
 	".swiperDestaques": {
@@ -23,6 +30,18 @@ const swiperConfigs = {
 		pagination: {
 			el: ".swiper-pagination",
 			clickable: true,
+		},
+		breakpoints: {
+			320: {
+				slidesPerView: "auto",
+				spaceBetween: 8,
+				initialSlide: 0,
+			},
+			800: {
+				slidesPerView: 1.5,
+				spaceBetween: 80,
+				initialSlide: 1,
+			},
 		},
 	},
 	".swiperTerrorFilmes": { ...defaultSwiperConfig },
@@ -81,6 +100,13 @@ function createSlides(items, swiperWrapper, limit) {
 	}
 }
 
+function truncateText(text, maxLength = 450) {
+	if (text.length <= maxLength) {
+		return text;
+	}
+	return text.substring(0, maxLength) + "...";
+}
+
 /**
  * @param {string} swiperSelector
  * @param {string} url
@@ -136,11 +162,13 @@ async function getHighlights() {
 				const slide = document.createElement("div");
 				slide.classList.add("swiper-slide");
 				const backdropUrl = `${IMAGE_BASE_URL_BACKDROP}${item.backdrop_path}`;
+
+				const description = truncateText(item.overview, 450);
 				slide.innerHTML = `
               <div class="image-area" style="background-image: url('${backdropUrl}')"></div>
               <div class="movie-description">
                 <h3>${item.title || item.name}</h3>
-                <p>${item.overview}</p>
+                <p>${description}</p>
               </div>
             `;
 				swiperWrapper.appendChild(slide);
