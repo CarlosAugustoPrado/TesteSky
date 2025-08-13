@@ -90,6 +90,17 @@
 							</rect>
 						</svg>
 					</button>
+					<form id="search-form" class="search-form">
+						<input type="search" id="search-input" placeholder="Buscar filmes, séries..." />
+						<div class="form-buttons">
+							<button class="btn-submit" type="submit" aria-label="Buscar">
+								<img src="./assets/icons/icon-search.svg" alt="Ícone de uma Lupa" />
+							</button>
+							<div class="btn-close">
+								<span>X</span>
+							</div>
+						</div>
+					</form>
 				</div>
 			</div>
 			<nav>
@@ -171,113 +182,122 @@
 				</div>
 			</section>
 
-			<div id="movies" class="tab-content">
-				<section class="s-categoria-filmes carrossel-filmes-terror">
-					<h2>Os mais temidos</h2>
-					<div class="swiper swiperTerrorFilmes">
-						<div class="spinner">
-							<div class="spinner-loader"></div>
+			<div id="main-content">
+				<div id="movies" class="tab-content">
+					<section class="s-categoria-filmes carrossel-filmes-terror">
+						<h2>Os mais temidos</h2>
+						<div class="swiper swiperTerrorFilmes">
+							<div class="spinner">
+								<div class="spinner-loader"></div>
+							</div>
+							<div class="swiper-wrapper"></div>
 						</div>
-						<div class="swiper-wrapper"></div>
-					</div>
-				</section>
+					</section>
 
-				<section class="s-categoria-filmes carrossel-filmes-nacionais">
-					<h2>Coletânea Nacional</h2>
-					<div class="swiper swiperNacionalFilmes">
-						<div class="spinner">
-							<div class="spinner-loader"></div>
+					<section class="s-categoria-filmes carrossel-filmes-nacionais">
+						<h2>Coletânea Nacional</h2>
+						<div class="swiper swiperNacionalFilmes">
+							<div class="spinner">
+								<div class="spinner-loader"></div>
+							</div>
+							<div class="swiper-wrapper"></div>
 						</div>
-						<div class="swiper-wrapper"></div>
-					</div>
-				</section>
+					</section>
 
-				<section class="s-categoria-filmes carrossel-filmes-warner">
-					<h2>Warner Bros</h2>
-					<div class="swiper swiperDCFilmes">
-						<div class="spinner">
-							<div class="spinner-loader"></div>
+					<section class="s-categoria-filmes carrossel-filmes-warner">
+						<h2>Warner Bros</h2>
+						<div class="swiper swiperDCFilmes">
+							<div class="spinner">
+								<div class="spinner-loader"></div>
+							</div>
+							<div class="swiper-wrapper"></div>
 						</div>
-						<div class="swiper-wrapper"></div>
-					</div>
-				</section>
+					</section>
 
-				<section class="s-categoria-filmes carrossel-filmes-marvel">
-					<h2>Marvel</h2>
-					<div class="swiper swiperMarvelFilmes">
-						<div class="spinner">
-							<div class="spinner-loader"></div>
+					<section class="s-categoria-filmes carrossel-filmes-marvel">
+						<h2>Marvel</h2>
+						<div class="swiper swiperMarvelFilmes">
+							<div class="spinner">
+								<div class="spinner-loader"></div>
+							</div>
+							<div class="swiper-wrapper"></div>
 						</div>
-						<div class="swiper-wrapper"></div>
-					</div>
-				</section>
+					</section>
 
-				<div class="navigation-button-next">
-					<img src="./assets/icons/icon-caret-right.svg" alt="" />
+					<div class="navigation-button-next">
+						<img src="./assets/icons/icon-caret-right.svg" alt="" />
+					</div>
+					<div class="navigation-button-prev">
+						<img src="./assets/icons/icon-caret-left.svg" alt="" />
+					</div>
 				</div>
-				<div class="navigation-button-prev">
-					<img src="./assets/icons/icon-caret-left.svg" alt="" />
+
+				<div id="series" class="tab-content">
+					<section class="s-categoria-series carrossel-series-terror">
+						<h2>Séries de Suspense e Terror</h2>
+						<div class="swiper swiperTerrorSeries">
+							<div class="spinner">
+								<div class="spinner-loader"></div>
+							</div>
+							<div class="swiper-wrapper"></div>
+						</div>
+					</section>
+
+					<section class="s-categoria-series carrossel-series-acaoAventura">
+						<h2>Ação e Aventura</h2>
+						<div class="swiper swiperAcaoSeries">
+							<div class="spinner">
+								<div class="spinner-loader"></div>
+							</div>
+							<div class="swiper-wrapper"></div>
+						</div>
+					</section>
+
+					<section class="s-categoria-series carrossel-series-comedia">
+						<h2>Comédia</h2>
+						<div class="swiper swiperComediaSeries">
+							<div class="spinner">
+								<div class="spinner-loader"></div>
+							</div>
+							<div class="swiper-wrapper"></div>
+						</div>
+					</section>
+
+					<section class="s-categoria-series carrossel-series-romance">
+						<h2>Romance</h2>
+						<div class="swiper swiperRomanceSeries">
+							<div class="spinner">
+								<div class="spinner-loader"></div>
+							</div>
+							<div class="swiper-wrapper"></div>
+						</div>
+					</section>
+					<div class="navigation-button-next">
+						<img src="./assets/icons/icon-caret-right.svg" alt="" />
+					</div>
+					<div class="navigation-button-prev">
+						<img src="./assets/icons/icon-caret-left.svg" alt="" />
+					</div>
+				</div>
+
+				<div id="canais" class="tab-content">
+					<h2>Ops estamos trabalhando aqui...</h2>
+
+					<div class="navigation-button-next">
+						<img src="./assets/icons/icon-caret-right.svg" alt="" />
+					</div>
+					<div class="navigation-button-prev">
+						<img src="./assets/icons/icon-caret-left.svg" alt="" />
+					</div>
 				</div>
 			</div>
 
-			<div id="series" class="tab-content">
-				<section class="s-categoria-series carrossel-series-terror">
-					<h2>Séries de Suspense e Terror</h2>
-					<div class="swiper swiperTerrorSeries">
-						<div class="spinner">
-							<div class="spinner-loader"></div>
-						</div>
-						<div class="swiper-wrapper"></div>
-					</div>
-				</section>
-
-				<section class="s-categoria-series carrossel-series-acaoAventura">
-					<h2>Ação e Aventura</h2>
-					<div class="swiper swiperAcaoSeries">
-						<div class="spinner">
-							<div class="spinner-loader"></div>
-						</div>
-						<div class="swiper-wrapper"></div>
-					</div>
-				</section>
-
-				<section class="s-categoria-series carrossel-series-comedia">
-					<h2>Comédia</h2>
-					<div class="swiper swiperComediaSeries">
-						<div class="spinner">
-							<div class="spinner-loader"></div>
-						</div>
-						<div class="swiper-wrapper"></div>
-					</div>
-				</section>
-
-				<section class="s-categoria-series carrossel-series-romance">
-					<h2>Romance</h2>
-					<div class="swiper swiperRomanceSeries">
-						<div class="spinner">
-							<div class="spinner-loader"></div>
-						</div>
-						<div class="swiper-wrapper"></div>
-					</div>
-				</section>
-				<div class="navigation-button-next">
-					<img src="./assets/icons/icon-caret-right.svg" alt="" />
+			<section class="search-results" id="search-results">
+				<div class="container">
+					<h2></h2>
+					<div class="cards-results"></div>
 				</div>
-				<div class="navigation-button-prev">
-					<img src="./assets/icons/icon-caret-left.svg" alt="" />
-				</div>
-			</div>
-
-			<div id="canais" class="tab-content">
-				<h2>Ops estamos trabalhando aqui...</h2>
-
-				<div class="navigation-button-next">
-					<img src="./assets/icons/icon-caret-right.svg" alt="" />
-				</div>
-				<div class="navigation-button-prev">
-					<img src="./assets/icons/icon-caret-left.svg" alt="" />
-				</div>
-			</div>
+			</section>
 		</main>
 
 		<footer>
@@ -486,6 +506,6 @@
 		</footer>
 
 		<script src="./js/plugins.js"></script>
-		<script src="./js/all.js"></script>
+		<script type="module" src="./js/all.js"></script>
 	</body>
 </html>

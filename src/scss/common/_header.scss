@@ -10,6 +10,7 @@ header {
 		border-bottom: 1px solid #d1d1d1;
 		background-color: #f1f2fa;
 		.container {
+			position: relative;
 			@include flex(row, center, space-between);
 			.left-area {
 				display: flex;
@@ -133,11 +134,67 @@ header {
 				}
 			}
 			.btn-burguer-menu {
+				display: none;
 				.hb {
 					width: 40px;
 					height: 40px;
 					-webkit-transition: all 0.3s;
 					transition: all 0.3s;
+				}
+			}
+			form {
+				position: absolute;
+				right: 0;
+				background-color: #fff;
+				border-radius: 100px;
+				height: 48px;
+				width: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 0 10px 0 20px;
+				width: 0;
+				pointer-events: none;
+				z-index: -1;
+				transition: width 0.8s;
+				input {
+					width: 80%;
+					font-size: 1.6rem;
+					background-color: transparent;
+				}
+				.form-buttons {
+					display: flex;
+					align-items: center;
+					gap: 12px;
+					.btn-submit {
+						width: 36px;
+						height: 36px;
+						border-radius: 50%;
+						background-color: #fff;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						box-shadow: 0 4px 12.8px 0 rgba(0, 0, 0, 0.15);
+					}
+					.btn-close {
+						cursor: pointer;
+						span {
+							font-size: 1.6rem;
+							color: $main-dark-color;
+							font-weight: bold;
+							transition: all 0.3s;
+						}
+						&:hover {
+							span {
+								color: $main-colored;
+							}
+						}
+					}
+				}
+				&.visible {
+					width: 50%;
+					pointer-events: all;
+					z-index: 5;
 				}
 			}
 		}
@@ -295,7 +352,15 @@ header {
 					}
 				}
 				.action-area {
-					display: none;
+					.btn-login {
+						display: none;
+					}
+					.btn-search {
+						display: none;
+					}
+					.btn-burguer-menu {
+						display: block;
+					}
 				}
 			}
 		}

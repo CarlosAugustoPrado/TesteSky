@@ -7,6 +7,7 @@ import concat from "gulp-concat";
 import babel from "gulp-babel";
 import uglify from "gulp-uglify";
 import cleanCSS from "gulp-clean-css";
+import webpack from "webpack-stream";
 
 const sassCompiler = gulpSass(sass);
 const browserSync = browserSyncLib.create();
@@ -32,19 +33,20 @@ function compilaSass() {
 		.pipe(gulp.dest("dist/css/"))
 		.pipe(browserSync.stream());
 }
-
-// Tarefa do Sass
-export const sassTask = compilaSass;
-
 function pluginsCSS() {
 	return gulp.src("src/css/lib/*.css").pipe(concat("plugins.css")).pipe(gulp.dest("dist/css/")).pipe(gulp.dest("src/css/")).pipe(browserSync.stream());
 }
-export const plugincss = pluginsCSS;
-
 function gulpJs() {
 	return gulp
-		.src("src/js/scripts/*.js")
-		.pipe(concat("all.js"))
+		.src("src/js/scripts/main.js")
+		.pipe(
+			webpack({
+				mode: "development",
+				output: {
+					filename: "all.js",
+				},
+			})
+		)
 		.pipe(
 			babel({
 				presets: ["@babel/env"],
@@ -55,14 +57,9 @@ function gulpJs() {
 		.pipe(gulp.dest("dist/js/"))
 		.pipe(browserSync.stream());
 }
-export const alljs = gulpJs;
-
 function pluginsJs() {
 	return gulp.src("src/js/lib/*.js").pipe(concat("plugins.js")).pipe(gulp.dest("dist/js/")).pipe(gulp.dest("src/js/")).pipe(browserSync.stream());
 }
-export const pluginjs = pluginsJs;
-
-// Função do BrowserSync
 function browser() {
 	browserSync.init({
 		server: {
@@ -70,9 +67,6 @@ function browser() {
 		},
 	});
 }
-export const browserSyncTask = browser;
-
-// Função do watch para alterações em SCSS e HTML
 function watchFiles() {
 	gulp.watch("src/scss/**/*.scss", compilaSass);
 	gulp.watch("src/css/lib/*.css", pluginsCSS);
@@ -80,6 +74,11 @@ function watchFiles() {
 	gulp.watch("src/js/scripts/*.js", gulpJs);
 	gulp.watch("src/js/lib/*.js", pluginsJs);
 }
+export const sassTask = compilaSass;
+export const plugincss = pluginsCSS;
+export const alljs = gulpJs;
+export const pluginjs = pluginsJs;
+export const browserSyncTask = browser;
 export const watch = watchFiles;
 
 // Tarefas default que executam o watch e o BrowserSync
