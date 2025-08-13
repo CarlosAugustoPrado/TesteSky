@@ -105,13 +105,14 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			background-color: $main-dark-color;
+			background-color: var(--cor-texto-principal);
 			border-radius: 50%;
 			cursor: pointer;
 			transition: all 0.3s;
 			svg {
 				path {
 					transition: all 0.3;
+					fill: var(--cor-fundo);
 				}
 			}
 			&:hover {
@@ -207,7 +208,7 @@
 			font-size: 1.6rem;
 			font-weight: bold;
 			line-height: 1.38;
-			color: $main-dark-color;
+			color: var(--cor-texto-principal);
 			margin-bottom: 16px;
 			margin-left: 10%;
 		}
@@ -255,10 +256,10 @@
 							}
 						}
 						&:hover {
-							border-color: $main-colored;
+							border-color: --cor-destaque;
 							svg {
 								path {
-									fill: $main-colored;
+									fill: --cor-destaque;
 								}
 							}
 						}
@@ -408,7 +409,7 @@
 			max-width: 50px;
 		}
 		&:hover {
-			background-color: $main-colored;
+			background-color: --cor-destaque;
 		}
 	}
 	.navigation-button-next {
@@ -437,6 +438,21 @@
 	}
 }
 #canais {
+	min-height: 100vh;
+	.container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		h2 {
+			align-items: center;
+			font-size: 3.2rem;
+			color: var(--cor-texto-principal);
+		}
+		img {
+			max-width: 500px;
+		}
+	}
 	.navigation-button-next {
 		opacity: 0.12;
 		cursor: not-allowed;
@@ -444,10 +460,11 @@
 }
 
 .search-results {
+	padding-bottom: 64px;
 	.container {
 		h2 {
 			font-size: 3rem;
-			color: $main-light-color;
+			color: var(--cor-texto-secundario);
 			margin-bottom: 16px;
 		}
 		.cards-results {

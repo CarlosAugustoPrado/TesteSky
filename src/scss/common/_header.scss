@@ -8,7 +8,7 @@ header {
 		display: flex;
 		align-items: center;
 		border-bottom: 1px solid #d1d1d1;
-		background-color: #f1f2fa;
+		background-color: var(--cor-fundo-cinza);
 		.container {
 			position: relative;
 			@include flex(row, center, space-between);
@@ -33,7 +33,7 @@ header {
 						width: 24px;
 						height: 24px;
 						border-radius: 50%;
-						background-color: #fafaff;
+						background-color: var(--cor-fundo-03);
 						transition: all 0.3s;
 						img {
 							max-width: 15px;
@@ -41,10 +41,14 @@ header {
 						span {
 							font-size: 1.3rem;
 							font-weight: bold;
-							color: $main-light-color;
+							color: var(--cor-texto-secundario);
 						}
 						&:hover {
 							transform: scale(1.2);
+						}
+						svg {
+							max-width: 18px;
+							stroke: var(--cor-texto-secundario);
 						}
 					}
 				}
@@ -55,12 +59,13 @@ header {
 					span {
 						font-size: 1.6rem;
 						font-weight: bold;
-						color: $main-light-color;
+						color: var(--cor-texto-secundario);
 						transition: all 0.3s;
 					}
 					svg {
 						path {
 							transition: all 0.3s;
+							fill: var(--cor-texto-secundario);
 						}
 					}
 					&:hover {
@@ -86,12 +91,13 @@ header {
 					span {
 						font-size: 1.6rem;
 						font-weight: bold;
-						color: $main-light-color;
+						color: var(--cor-texto-secundario);
 						transition: all 0.3s;
 					}
 					svg {
 						path {
 							transition: all 0.3s;
+							fill: var(--cor-texto-secundario);
 						}
 					}
 					&:hover {
@@ -113,6 +119,7 @@ header {
 					svg {
 						path {
 							transition: all 0.3s;
+							fill: var(--cor-texto-secundario);
 						}
 					}
 					&:hover {
@@ -201,7 +208,7 @@ header {
 	}
 	nav {
 		width: 100%;
-		background-color: #fff;
+		background-color: var(--cor-fundo-02);
 		box-shadow: 0 15px 24.8px 0 rgba(0, 0, 0, 0.1);
 		ul {
 			width: 100%;
@@ -222,7 +229,7 @@ header {
 						font-weight: bold;
 						line-height: 1.38;
 						text-align: center;
-						color: $main-light-color;
+						color: var(--cor-texto-secundario);
 					}
 					&:after {
 						content: "";
@@ -290,7 +297,7 @@ header {
 				span {
 					font-size: 1.6rem;
 					font-weight: bold;
-					color: $main-light-color;
+					color: var(--cor-texto-secundario);
 					transition: all 0.3s;
 				}
 				svg {

@@ -1,7 +1,7 @@
 @use "utils" as *;
 
 footer {
-	background-color: #f1f2fa;
+	background-color: var(--cor-fundo-cinza);
 	padding-top: 16px;
 	.upper-area {
 		border-bottom: 1px solid #d1d1d1;
@@ -53,7 +53,7 @@ footer {
 					p {
 						font-size: 1.6rem;
 						font-weight: bold;
-						color: $main-light-color;
+						color: var(--cor-texto-secundario);
 						max-width: 280px;
 					}
 				}
@@ -71,13 +71,13 @@ footer {
 					h3 {
 						font-size: 1.6rem;
 						font-weight: bold;
-						color: $main-light-color;
+						color: var(--cor-texto-secundario);
 						max-width: 280px;
 						margin-bottom: 16px;
 						button {
 							font-size: 1.6rem;
 							font-weight: bold;
-							color: $main-light-color;
+							color: var(--cor-texto-secundario);
 							max-width: 280px;
 							.caret {
 								display: none;
@@ -95,7 +95,7 @@ footer {
 							a {
 								font-size: 1.4rem;
 								line-height: 2.14;
-								color: $main-dark-color;
+								color: var(--cor-texto-principal);
 								transition: 0.3s;
 
 								&:hover {
@@ -109,6 +109,9 @@ footer {
 		}
 	}
 	.info-bar {
+		width: 100%;
+		background-color: var(--cor-fundo);
+		padding: 8px 0;
 		.container {
 			ul {
 				display: flex;
@@ -118,8 +121,8 @@ footer {
 						font-size: 1.4rem;
 						line-height: 2.14;
 						padding-right: 8px;
-						color: $main-dark-color;
-						border-right: 1px solid $main-dark-color;
+						color: var(--cor-texto-principal);
+						border-right: 1px solid var(--cor-texto-principal);
 						transition: all 0.3s;
 						&:hover {
 							color: $main-colored;
@@ -128,9 +131,6 @@ footer {
 				}
 			}
 		}
-		width: 100%;
-		background-color: #fff;
-		padding: 8px 0;
 	}
 	.copyrights {
 		padding: 8px 0;
@@ -140,7 +140,7 @@ footer {
 				font-size: 1.4rem;
 				line-height: 1.43;
 				letter-spacing: normal;
-				color: $main-light-color;
+				color: var(--cor-texto-secundario);
 			}
 		}
 	}

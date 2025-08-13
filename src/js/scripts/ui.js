@@ -128,7 +128,7 @@ export function displaySearchResults(items, searchTerm) {
 }
 
 /**
- * Configura todos os event listeners da aplicação.
+ *
  * @param {object} config - Objeto contendo elementos e funções de callback do main.js.
  */
 export function setupEventListeners(config) {
@@ -169,4 +169,41 @@ export function setupEventListeners(config) {
 			linkGroup?.classList.toggle("active");
 		});
 	});
+
+	// Botao dark mode
+	const darkModeButton = document.getElementById("dark-mode-toggle");
+	if (darkModeButton) {
+		darkModeButton.addEventListener("click", () => {
+			document.body.classList.toggle("dark-mode");
+		});
+	}
+
+	// Botoes de tamanho de fonte
+	const btnIncrease = document.getElementById("font-increase");
+	const btnDecrease = document.getElementById("font-decrease");
+	const htmlElement = document.documentElement;
+
+	if (btnIncrease && btnDecrease) {
+		const initialBaseSize = parseFloat(getComputedStyle(htmlElement).getPropertyValue("--font-size-base"));
+		let currentBaseSize = initialBaseSize;
+
+		const applyFontSize = (size) => {
+			htmlElement.style.setProperty("--font-size-base", size + "%");
+			localStorage.setItem("font-size-preference", size);
+		};
+
+		btnIncrease.addEventListener("click", () => {
+			if (currentBaseSize < 72.5) {
+				currentBaseSize += 2.5;
+				applyFontSize(currentBaseSize);
+			}
+		});
+
+		btnDecrease.addEventListener("click", () => {
+			if (currentBaseSize > 52.5) {
+				currentBaseSize -= 2.5;
+				applyFontSize(currentBaseSize);
+			}
+		});
+	}
 }

@@ -15,16 +15,30 @@ img {
 }
 
 html {
-	font-size: 62.5%;
+	--font-size-base: 62.5%;
+
+	font-size: var(--font-size-base);
 	@media (max-width: 1300px) {
-		font-size: 58%;
+		--font-size-base: 58%;
 	}
 	@media (max-width: 991px) {
-		font-size: 62.5%;
+		--font-size-base: 62.5%;
 	}
 }
 
 button {
 	background-color: transparent;
 	cursor: pointer;
+}
+
+body {
+	background-color: var(--cor-fundo);
+	&.dark-mode {
+		--cor-fundo: #1a1a1a;
+		--cor-texto-principal: rgba(255, 255, 255, 0.87);
+		--cor-texto-secundario: rgba(255, 255, 255, 0.6);
+		--cor-fundo-cinza: #6b6b6b;
+		--cor-fundo-02: #353535;
+		--cor-fundo-03: #353535;
+	}
 }

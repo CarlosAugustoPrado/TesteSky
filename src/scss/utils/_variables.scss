@@ -1,3 +1,13 @@
 $main-light-color: hsla(0, 0%, 0%, 0.6);
 $main-dark-color: rgba(0, 0, 0, 0.87);
 $main-colored: rgba(243, 92, 88, 0.99);
+
+:root {
+	--cor-fundo: #ffffff;
+	--cor-texto-principal: #{$main-dark-color};
+	--cor-texto-secundario: #{$main-light-color};
+	--cor-destaque: #{$main-colored};
+	--cor-fundo-cinza: #f1f2fa;
+	--cor-fundo-02: #ffffff;
+	--cor-fundo-03: #fafaff;
+}
