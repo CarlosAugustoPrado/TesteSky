@@ -12,14 +12,6 @@ import webpack from "webpack-stream";
 const sassCompiler = gulpSass(sass);
 const browserSync = browserSyncLib.create();
 
-function copyStaticAssets() {
-	return gulp.src("src/assets/meta/**/*").pipe(gulp.dest("dist/"));
-}
-
-function copyHtml() {
-	return gulp.src("src/*.html").pipe(gulp.dest("dist/")).pipe(browserSync.stream()); // Adicionado para recarregar o browser
-}
-
 function compilaSass() {
 	return gulp
 		.src("src/scss/**/*.scss")
@@ -71,23 +63,17 @@ function pluginsJs() {
 function browser() {
 	browserSync.init({
 		server: {
-			baseDir: "./dist/", // <<< ALTERADO: Agora o servidor roda a partir da pasta 'dist'
+			baseDir: "./src/",
 		},
 	});
 }
 function watchFiles() {
 	gulp.watch("src/scss/**/*.scss", compilaSass);
 	gulp.watch("src/css/lib/*.css", pluginsCSS);
-	gulp.watch("src/*.html", copyHtml);
-	gulp.watch("src/assets/**/*", copyStaticAssets);
+	gulp.watch("src/*.html").on("change", browserSync.reload);
 	gulp.watch("src/js/scripts/*.js", gulpJs);
 	gulp.watch("src/js/lib/*.js", pluginsJs);
 }
-
-// <<< NOVO: exportando as novas tarefas (opcional, mas boa prática)
-export const staticAssets = copyStaticAssets;
-export const html = copyHtml;
-
 export const sassTask = compilaSass;
 export const plugincss = pluginsCSS;
 export const alljs = gulpJs;
@@ -95,5 +81,5 @@ export const pluginjs = pluginsJs;
 export const browserSyncTask = browser;
 export const watch = watchFiles;
 
-// <<< ALTERADO: Tarefas default que executam tudo
-export default gulp.parallel(watchFiles, browser, compilaSass, pluginsCSS, gulpJs, pluginsJs, copyHtml, copyStaticAssets);
+// Tarefas default que executam o watch e o BrowserSync
+export default gulp.parallel(watchFiles, browser, compilaSass, pluginsCSS, gulpJs, pluginsJs);

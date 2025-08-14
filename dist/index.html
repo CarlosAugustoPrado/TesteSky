@@ -28,14 +28,14 @@
 			<div class="upper-area">
 				<div class="container">
 					<div class="left-area">
-						<a href="/" class="logo">
+						<a href="/" class="logo" aria-label="Sky - Página Inicial">
 							<img src="./assets/main-logo.svg" alt="Logo da Sky" />
 						</a>
-						<div class="acessibilidade">
-							<button class="btn-feature btn-person">
-								<img src="./assets/icons/icon-accessibility.svg" alt="Ícone de acessibilidade" />
+						<div role="toolbar" aria-label="Ferramentas de Acessibilidade" class="acessibilidade">
+							<button class="btn-feature btn-person" aria-label="Abrir opções de acessibilidade">
+								<img src="./assets/icons/icon-accessibility.svg" alt="Ícone de acessibilidade" aria-hidden="true" />
 							</button>
-							<button id="dark-mode-toggle" class="btn-feature btn-dark-mode">
+							<button id="dark-mode-toggle" class="btn-feature btn-dark-mode" aria-label="Alternar para modo escuro">
 								<svg
 									width="64px"
 									height="64px"
@@ -60,10 +60,10 @@
 									</g>
 								</svg>
 							</button>
-							<button id="font-decrease" title="Diminuir Fonte" class="btn-feature btn-font-down">
+							<button id="font-decrease" aria-label="Diminuir tamanho da fonte" class="btn-feature btn-font-down">
 								<span>A-</span>
 							</button>
-							<button id="font-increase" title="Aumentar Fonte" class="btn-feature btn-font-up">
+							<button id="font-increase" aria-label="Aumentar tamanho da fonte" class="btn-feature btn-font-up">
 								<span>A+</span>
 							</button>
 						</div>
@@ -81,7 +81,7 @@
 					</div>
 					<div class="action-area">
 						<button class="btn-login">
-							<svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16">
+							<svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16">
 								<path
 									fill="#000"
 									fill-opacity=".6"
@@ -91,8 +91,8 @@
 
 							<span>Entrar</span>
 						</button>
-						<button class="btn-search">
-							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+						<button class="btn-search" aria-label="Abrir busca">
+							<svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
 								<path
 									fill="#000"
 									fill-opacity=".6"
@@ -101,7 +101,7 @@
 							</svg>
 						</button>
 					</div>
-					<button class="btn-burguer-menu">
+					<button class="btn-burguer-menu" aria-label="Abrir menu principal" aria-expanded="false" aria-controls="menu-mobile">
 						<svg class="hb" viewBox="0 0 10 10" stroke="hsla(0, 0%, 0%, 0.6)" stroke-width=".8" fill="rgba(0,0,0,0)" stroke-linecap="round">
 							<path d="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7">
 								<animate dur="0.2s" attributeName="d" values="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7;M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7" fill="freeze" begin="start2B.begin" id="startB" />
@@ -123,32 +123,31 @@
 						</svg>
 					</button>
 					<form id="search-form" class="search-form">
+						<label for="search-input" class="sr-only">Buscar filmes e séries</label>
 						<input type="search" id="search-input" placeholder="Buscar filmes, séries..." />
 						<div class="form-buttons">
 							<button class="btn-submit" type="submit" aria-label="Buscar">
 								<img src="./assets/icons/icon-search.svg" alt="Ícone de uma Lupa" />
 							</button>
-							<div class="btn-close">
-								<span>X</span>
-							</div>
+							<button type="button" class="btn-close" aria-label="Fechar busca">X</button>
 						</div>
 					</form>
 				</div>
 			</div>
-			<nav>
+			<nav aria-label="Categorias de conteúdo">
 				<ul>
 					<li>
-						<button class="btn-filme active">
+						<button class="btn-filme active" aria-label="Aba de Filmes" role="tab" aria-selected="true" aria-controls="movies-panel" id="movies-tab">
 							<span>Filmes</span>
 						</button>
 					</li>
 					<li>
-						<button class="btn-series">
+						<button class="btn-series" aria-label="Aba de Séries" aria-label="Aba de Séries" role="tab" aria-selected="false" aria-controls="series-panel" id="series-tab">
 							<span>Séries</span>
 						</button>
 					</li>
 					<li>
-						<button class="btn-canais">
+						<button class="btn-canais" aria-label="Aba de Canais" aria-label="Aba de Canais" role="tab" aria-selected="false" aria-controls="canais-panel" id="canais-tab">
 							<span>Canais</span>
 						</button>
 					</li>
@@ -186,15 +185,17 @@
 		</header>
 
 		<main>
-			<section class="s-destaques">
-				<div class="swiper swiperDestaques">
-					<div class="spinner">
+			<section class="s-destaques" aria-labelledby="carousel-heading">
+				<h2 id="carousel-heading" class="sr-only">Filmes e séries em Destaque</h2>
+				<div class="swiper swiperDestaques" aria-label="Carrossel de filmes e séries em destaque">
+					<div class="spinner" role="status" aria-live="polite">
+						<span class="sr-only">Carregando destaques...</span>
 						<div class="spinner-loader"></div>
 					</div>
 					<div class="swiper-wrapper"></div>
 					<div class="swiper-pagination"></div>
-					<div class="custom-button-next">
-						<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+					<div class="custom-button-next" type="button" aria-label="Próximo slide">
+						<svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
 							<path
 								fill="#FFF"
 								fill-opacity=".7"
@@ -202,8 +203,8 @@
 								d="M12.69 3.544c-.511.51-.511 1.337 0 1.848l4.302 4.301H1.855a1.306 1.306 0 0 0 0 2.613H16.99l-4.302 4.302a1.306 1.306 0 0 0 1.848 1.848l6.532-6.532.084-.093.003-.004-.087.097a1.316 1.316 0 0 0 .37-.748 1.241 1.241 0 0 0 .013-.176v-.022l-.004-.079.004.101a1.318 1.318 0 0 0-.245-.761 1.233 1.233 0 0 0-.138-.163l-6.532-6.532a1.306 1.306 0 0 0-1.848 0z" />
 						</svg>
 					</div>
-					<div class="custom-button-prev">
-						<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+					<div class="custom-button-prev" type="button" aria-label="Slide anterior">
+						<svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
 							<path
 								fill="#FFF"
 								fill-opacity=".7"
@@ -218,8 +219,9 @@
 				<div id="movies" class="tab-content">
 					<section class="s-categoria-filmes carrossel-filmes-terror">
 						<h2>Os mais temidos</h2>
-						<div class="swiper swiperTerrorFilmes">
-							<div class="spinner">
+						<div class="swiper swiperTerrorFilmes" aria-label="Carrossel de filmes de terror">
+							<div class="spinner" role="status" aria-live="polite">
+								<span class="sr-only">Carregando destaques...</span>
 								<div class="spinner-loader"></div>
 							</div>
 							<div class="swiper-wrapper"></div>
@@ -228,8 +230,9 @@
 
 					<section class="s-categoria-filmes carrossel-filmes-nacionais">
 						<h2>Coletânea Nacional</h2>
-						<div class="swiper swiperNacionalFilmes">
-							<div class="spinner">
+						<div class="swiper swiperNacionalFilmes" aria-label="Carrossel de filmes nacionais">
+							<div class="spinner" role="status" aria-live="polite">
+								<span class="sr-only">Carregando destaques...</span>
 								<div class="spinner-loader"></div>
 							</div>
 							<div class="swiper-wrapper"></div>
@@ -238,8 +241,9 @@
 
 					<section class="s-categoria-filmes carrossel-filmes-warner">
 						<h2>Warner Bros</h2>
-						<div class="swiper swiperDCFilmes">
-							<div class="spinner">
+						<div class="swiper swiperDCFilmes" aria-label="Carrossel de filmes da Warner">
+							<div class="spinner" role="status" aria-live="polite">
+								<span class="sr-only">Carregando destaques...</span>
 								<div class="spinner-loader"></div>
 							</div>
 							<div class="swiper-wrapper"></div>
@@ -248,8 +252,9 @@
 
 					<section class="s-categoria-filmes carrossel-filmes-marvel">
 						<h2>Marvel</h2>
-						<div class="swiper swiperMarvelFilmes">
-							<div class="spinner">
+						<div class="swiper swiperMarvelFilmes" aria-label="Carrossel de filmes da Marvel">
+							<div class="spinner" role="status" aria-live="polite">
+								<span class="sr-only">Carregando destaques...</span>
 								<div class="spinner-loader"></div>
 							</div>
 							<div class="swiper-wrapper"></div>
@@ -267,8 +272,9 @@
 				<div id="series" class="tab-content">
 					<section class="s-categoria-series carrossel-series-terror">
 						<h2>Séries de Suspense e Terror</h2>
-						<div class="swiper swiperTerrorSeries">
-							<div class="spinner">
+						<div class="swiper swiperTerrorSeries" aria-label="Carrossel de séries de terror">
+							<div class="spinner" role="status" aria-live="polite">
+								<span class="sr-only">Carregando destaques...</span>
 								<div class="spinner-loader"></div>
 							</div>
 							<div class="swiper-wrapper"></div>
@@ -277,8 +283,9 @@
 
 					<section class="s-categoria-series carrossel-series-acaoAventura">
 						<h2>Ação e Aventura</h2>
-						<div class="swiper swiperAcaoSeries">
-							<div class="spinner">
+						<div class="swiper swiperAcaoSeries" aria-label="Carrossel de séries de ação">
+							<div class="spinner" role="status" aria-live="polite">
+								<span class="sr-only">Carregando destaques...</span>
 								<div class="spinner-loader"></div>
 							</div>
 							<div class="swiper-wrapper"></div>
@@ -287,8 +294,9 @@
 
 					<section class="s-categoria-series carrossel-series-comedia">
 						<h2>Comédia</h2>
-						<div class="swiper swiperComediaSeries">
-							<div class="spinner">
+						<div class="swiper swiperComediaSeries" aria-label="Carrossel de séries de comédia">
+							<div class="spinner" role="status" aria-live="polite">
+								<span class="sr-only">Carregando destaques...</span>
 								<div class="spinner-loader"></div>
 							</div>
 							<div class="swiper-wrapper"></div>
@@ -297,8 +305,9 @@
 
 					<section class="s-categoria-series carrossel-series-romance">
 						<h2>Romance</h2>
-						<div class="swiper swiperRomanceSeries">
-							<div class="spinner">
+						<div class="swiper swiperRomanceSeries" aria-label="Carrossel de séries de romance">
+							<div class="spinner" role="status" aria-live="polite">
+								<span class="sr-only">Carregando destaques...</span>
 								<div class="spinner-loader"></div>
 							</div>
 							<div class="swiper-wrapper"></div>
@@ -330,7 +339,7 @@
 			<section class="search-results" id="search-results">
 				<div class="container">
 					<h2></h2>
-					<div class="cards-results"></div>
+					<div class="cards-results" aria-live="polite" aria-busy="false"></div>
 				</div>
 			</section>
 		</main>
@@ -338,7 +347,7 @@
 		<footer>
 			<div class="upper-area">
 				<div class="container">
-					<img src="./assets/grey-logo.png" alt="" />
+					<img src="./assets/logo-cinza.png" alt="" />
 					<div class="share">
 						<ul>
 							<li>
