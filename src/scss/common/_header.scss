@@ -3,6 +3,7 @@
 header {
 	margin-bottom: 24px;
 	z-index: 2025;
+	width: 100%;
 	.upper-area {
 		height: 63px;
 		display: flex;
@@ -139,16 +140,17 @@ header {
 						transition: all 0.3s;
 					}
 				}
-			}
-			.btn-burguer-menu {
-				display: none;
-				.hb {
-					width: 40px;
-					height: 40px;
-					-webkit-transition: all 0.3s;
-					transition: all 0.3s;
+				.btn-burguer-menu {
+					display: none;
+					.hb {
+						width: 40px;
+						height: 40px;
+						-webkit-transition: all 0.3s;
+						transition: all 0.3s;
+					}
 				}
 			}
+
 			form {
 				position: absolute;
 				right: 0;
@@ -160,10 +162,10 @@ header {
 				align-items: center;
 				justify-content: space-between;
 				padding: 0 10px 0 20px;
-				width: 0;
+				opacity: 0;
 				pointer-events: none;
 				z-index: -1;
-				transition: width 0.8s;
+				transition: opacity 0.5s;
 				input {
 					width: 80%;
 					font-size: 1.6rem;
@@ -199,7 +201,7 @@ header {
 					}
 				}
 				&.visible {
-					width: 50%;
+					opacity: 1;
 					pointer-events: all;
 					z-index: 5;
 				}
@@ -264,15 +266,16 @@ header {
 	.menu-mobile {
 		position: fixed;
 		width: fit-content;
-		top: 63px;
+		top: 68px;
 		right: 0;
 		background-color: #ffffff;
 		display: flex;
 		align-items: center;
-		justify-content: center;
+
 		z-index: 2025;
 		transform: translatex(100%);
 		transition: all 0.3s;
+		width: 50%;
 		.menu-container {
 			position: relative;
 			z-index: 2024;
@@ -284,6 +287,7 @@ header {
 			flex-direction: column;
 			overflow-y: auto;
 			transition: all 0.3s;
+			width: 100%;
 			.btn-login {
 				display: flex;
 				align-items: center;
@@ -317,25 +321,14 @@ header {
 					}
 				}
 			}
-			form {
-				label {
-					display: flex;
-					justify-content: space-between;
-					align-items: center;
-					padding: 0 16px;
-					width: 300px;
-					border: 1px solid #d1d1d1;
-					border-radius: 20px;
-					height: 48px;
-					input {
-						width: 100%;
-						display: block;
-						max-width: 80%;
-					}
-					button {
-						display: flex;
-						align-items: center;
-						justify-content: center;
+			ul {
+				display: flex;
+				gap: 12px;
+				flex-direction: column;
+				li {
+					a {
+						font-size: 1.6rem;
+						color: var(--cor-texto-primario);
 					}
 				}
 			}
@@ -346,7 +339,7 @@ header {
 		}
 	}
 	@include responsive(650px) {
-		position: sticky;
+		position: fixed;
 		top: 0;
 		.upper-area {
 			.container {
@@ -362,12 +355,13 @@ header {
 					.btn-login {
 						display: none;
 					}
-					.btn-search {
-						display: none;
-					}
 					.btn-burguer-menu {
 						display: block;
 					}
+				}
+				form {
+					right: 15px;
+					width: 400px;
 				}
 			}
 		}
