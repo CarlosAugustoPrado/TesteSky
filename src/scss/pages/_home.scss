@@ -1,6 +1,7 @@
 @use "utils" as *;
 .s-destaques {
 	margin-bottom: 32px;
+
 	.swiperDestaques {
 		padding-bottom: 60px;
 		padding-top: 30px;
@@ -185,7 +186,11 @@
 			}
 		}
 	}
+	@include responsive(650px) {
+		margin-top: 100px;
+	}
 	@include responsive(560px) {
+		margin-top: 140px;
 		.swiperDestaques {
 			padding-top: 0;
 			.swiper-wrapper {
